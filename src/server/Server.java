@@ -27,6 +27,9 @@ public class Server {
     }
 
     private static void broadcast(String message){
+        for (ClientInfo info : clients){
+            send(message, info.getAddress(), info.getPort());
+        }
 
     }
 
@@ -100,6 +103,7 @@ public class Server {
     }
 
     public static void  stop(){
+        running = false;
 
     }
 }
